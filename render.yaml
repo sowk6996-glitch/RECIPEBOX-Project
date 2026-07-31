@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: recipebox-backend
+    env: docker
+    dockerfilePath: backend/Dockerfile
+    buildContext: backend
+    branch: main
+    autoDeploy: true
+
+static_sites:
+  - name: recipebox-frontend
+    root: frontend
+    buildCommand: npm install && npm run build
+    publishPath: dist
+    branch: main
+    autoDeploy: true
